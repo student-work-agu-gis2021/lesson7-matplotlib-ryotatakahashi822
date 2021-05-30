@@ -17,8 +17,15 @@
 
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # YOUR CODE HERE 1 to set data
+
+x=np.random.rand(1000)
+y=np.random.rand(1000)
+data=pd.DataFrame()
+data["x"]=x
+data["y"]=y
 
 # Check your random values
 print(data.head())
@@ -31,6 +38,8 @@ assert len(data) == 1000, "There should be 1000 rows of data."
 # 
 
 # YOUR CODE HERE 2 to set colors
+
+colors=np.random.rand(1000)
 
 # This test print should print out 10 first numbers in the variable colors
 print(colors[0:10])
@@ -53,13 +62,26 @@ assert len(colors) == 1000, "There should be 1000 random numbers for colors"
 # Plot a scatter plot
 # YOUR CODE HERE 3
 
+plt.scatter(
+  x,y,s=50,
+  c='black',
+  cmap='rainbow',
+  edgecolor='red'
+  )
+
 # Add labels and title
 # YOUR CODE HERE 4
+
+plt.title('My random candy points')
+plt.xlabel('X-label')
+plt.ylabel('Y-label')
 
 # Save the plot as a png file:
 outputfp = "my_first_plot.png"
 
 # YOUR CODE HERE 5
+
+plt.savefig(outputfp)
 
 # This test print statement should print the output filename of your figure
 print("Saved my first plot as:", outputfp)
